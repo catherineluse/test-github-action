@@ -12,7 +12,7 @@ jobs:
       issues: write
     steps:
       - name: Label issues
-        if: github.event.labeled
+        if: "contains(github.event.issue.labels.*.name, '[zube]: Working') || contains(github.event.issue.labels.*.name, '[zube]: Backlog') || contains(github.event.issue.labels.*.name, '[zube]: Backend Blocked') || contains(github.event.issue.labels.*.name, '[zube]: Next Up') || contains(github.event.issue.labels.*.name, '[zube]: Review')"
         uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
         with:
           add-labels: "[zube]: To Triage"
